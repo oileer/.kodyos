@@ -1,12 +1,12 @@
-# .escritorio — Seu CEO de IA em 5 minutos
+# KODY OS — Seu sistema operacional de IA
 
-> Um sistema de agentes de IA personalizado que você cria uma vez e usa para sempre.
+> Instale uma vez. Sua IA vai conhecer tudo sobre você e nunca mais começar do zero.
 
 ## O que é isso?
 
 A maioria das pessoas usa IA de forma reativa — pergunta, recebe resposta, repete.
 
-O Escritório de IA muda isso. Você deixa de ser alguém que usa IA e passa a ser alguém que **orquestra** IA.
+O KODY OS muda isso. Você deixa de ser alguém que usa IA e passa a ser alguém que **orquestra** IA.
 
 Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas e sabe delegar para os agentes certos na hora certa.
 
@@ -22,15 +22,15 @@ Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas e sabe
    ```
    https://github.com/oileer/.escritorio
    ```
-3. O Claude vai ler o `CLAUDE.md` e iniciar a entrevista
+3. O Claude vai ler o `CLAUDE.md` e iniciar a instalação
 4. Responda as perguntas — leva menos de 5 minutos
-5. Seu CEO estará criado e pronto para usar
+5. Seu sistema estará criado e pronto para usar
 
 ## O que você vai ter no final
 
 ```
 sua-pasta/
-└── .escritorio/
+└── .kodyos/
     ├── CEO.md                    ← seu orquestrador personalizado
     ├── memoria/
     │   └── CEO/
@@ -57,13 +57,13 @@ Ele vai conhecer seus projetos, seus clientes e vai coordenar tudo a partir daí
 | Operações | Tarefas, arquivos, organização |
 | Pesquisador | Tendências, concorrentes, referências |
 
-Cada agente é um arquivo `.md` dentro da pasta `.escritorio/agentes/`. O CEO sabe quando chamar cada um.
+Cada agente é um arquivo `.md` dentro da pasta `.kodyos/agentes/`. O CEO sabe quando chamar cada um.
 
 ## Por que funciona
 
 LLMs só são boas quando têm contexto. Sem contexto, a IA chuta. Com contexto, ela executa.
 
-Este repositório ensina a IA a **perguntar** o contexto certo antes de construir qualquer coisa. O resultado é um sistema que foi feito pra você — não pra mais ninguém.
+O KODY OS ensina a IA a perguntar o contexto certo antes de construir qualquer coisa. O resultado é um sistema que foi feito pra você — não pra mais ninguém.
 
 ---
 
