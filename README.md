@@ -20,7 +20,7 @@ Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas e sabe
 1. Abra o Claude Code na pasta raiz do seu computador
 2. Cole o link deste repositório no chat:
    ```
-   https://github.com/oileer/.escritorio
+   https://github.com/oileer/.kodyos
    ```
 3. O Claude vai ler o `CLAUDE.md` e iniciar a instalação
 4. Responda as perguntas — leva menos de 5 minutos

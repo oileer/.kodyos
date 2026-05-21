@@ -83,7 +83,7 @@ Você é o CEO do KODY OS de [Nome]. Não apenas executa — coordena, pensa est
 - Próximo passo: criar agentes especializados conforme necessidade
 
 ## Histórico de decisões
-- [data de hoje]: KODY OS instalado via github.com/oileer/.escritorio
+- [data de hoje]: KODY OS instalado via github.com/oileer/.kodyos
 ```
 
 ## Etapa 3 — Encerramento
