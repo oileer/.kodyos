@@ -8,7 +8,7 @@ A maioria das pessoas usa IA de forma reativa — pergunta, recebe resposta, rep
 
 O KODY OS muda isso. Você deixa de ser alguém que usa IA e passa a ser alguém que **orquestra** IA.
 
-Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas e sabe delegar para os agentes certos na hora certa.
+Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas — e sabe delegar para os agentes certos na hora certa.
 
 ## Como instalar
 
@@ -23,47 +23,78 @@ Um CEO digital que conhece seus projetos, seus clientes, suas ferramentas e sabe
    https://github.com/oileer/.kodyos
    ```
 3. O Claude vai ler o `CLAUDE.md` e iniciar a instalação
-4. Responda as perguntas — leva menos de 5 minutos
+4. Responda as perguntas — leva menos de 10 minutos
 5. Seu sistema estará criado e pronto para usar
 
 ## O que você vai ter no final
 
+O KODY OS cria **dois níveis** de estrutura:
+
+### Nível 1 — Escritório global
+Seu OS pessoal. Controla todos os projetos e agentes.
+
 ```
-sua-pasta/
-└── .kodyos/
-    ├── CEO.md                    ← seu orquestrador personalizado
-    ├── memoria/
-    │   └── CEO/
-    │       └── CONTEXTO-AGENTES.md
-    └── agentes/
-        └── (você cria conforme precisar)
+sua-raiz/
+├── CLAUDE.md                      ← ativa CEO global
+└── escritorio/
+    ├── ESCRITORIO.md              ← cérebro compartilhado (fonte de verdade)
+    ├── CEO.md                     ← orquestrador global
+    ├── [AGENTE].md                ← agentes escolhidos na instalação
+    └── memoria/
+        └── [AGENTE]/
+            └── HISTORICO.md
+```
+
+### Nível 2 — Pasta de cada projeto
+Um OS específico para cada projeto ou empresa ativa.
+
+```
+sua-raiz/[projeto]/
+├── CLAUDE.md                      ← ativa CEO do projeto
+├── CEO.md                         ← orquestrador do projeto
+├── agentes/                       ← agentes específicos do projeto
+├── memoria/                       ← histórico e contexto do projeto
+└── planejamento/                  ← (para projetos de marketing/conteúdo)
+    ├── INVENTARIO-NOTEBOOKLM.md
+    ├── CALENDARIO.md
+    ├── banco-de-ideias/
+    └── briefings/
 ```
 
 ## Como usar depois
 
-Abra o Claude Code em qualquer projeto e diga:
-
+**Para trabalho global (todos os projetos):**
+Abra `sua-raiz/` no Claude Code e diga:
 > "Ative o CEO"
 
-Ele vai conhecer seus projetos, seus clientes e vai coordenar tudo a partir daí.
+**Para um projeto específico:**
+Abra `sua-raiz/[projeto]/` no Claude Code e diga:
+> "Ative o CEO"
 
-## Exemplos de agentes que você pode criar depois
+## Agentes disponíveis
 
 | Agente | Para quê |
-|--------|----------|
-| Dev | Código, bugs, automações |
-| Criativo | Roteiros, copys, posts |
-| Vendas | Scripts, follow-up, propostas |
-| Operações | Tarefas, arquivos, organização |
-| Pesquisador | Tendências, concorrentes, referências |
+|---|---|
+| Dev | Código, bugs, automações, scripts, integrações |
+| Criativo | Posts, copys, roteiros, conteúdo visual |
+| Planejamento | Calendário editorial, NotebookLM, briefings |
+| Estrategista | Campanhas, métricas, concorrência, preços |
+| Pesquisador | Tendências, benchmarks, referências |
+| Designer | Imagens IA, vídeos IA |
+| Scraper | Extração de leads (Google Maps) |
+| WhatsApp | Disparo em massa + email outreach |
+| Operações | Arquivos, sistema, backups |
+| Organizador | Vault Obsidian, dashboard, diário |
+| Minerador | Mineração de conteúdo viral |
+| Copy | Roteiros curtos em escala |
 
-Cada agente é um arquivo `.md` dentro da pasta `.kodyos/agentes/`. O CEO sabe quando chamar cada um.
+Você escolhe quais ativar durante a instalação.
 
 ## Por que funciona
 
 LLMs só são boas quando têm contexto. Sem contexto, a IA chuta. Com contexto, ela executa.
 
-O KODY OS ensina a IA a perguntar o contexto certo antes de construir qualquer coisa. O resultado é um sistema que foi feito pra você — não pra mais ninguém.
+O KODY OS ensina a IA a perguntar o contexto certo antes de construir qualquer coisa. O resultado é um sistema feito pra você — não pra mais ninguém.
 
 ---
 
