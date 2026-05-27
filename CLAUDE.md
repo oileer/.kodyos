@@ -23,11 +23,12 @@ Faça as perguntas abaixo **em sequência**. Espere a resposta de cada uma antes
 ### Bloco B — Projetos e clientes
 5. Liste seus projetos ou empresas ativos. Para cada um diga: nome, o que faz, e se é de marketing/conteúdo, desenvolvimento, operações ou outro tipo.
 6. Tem clientes ativos? Liste nome e segmento de cada um.
+7. Para cada projeto de **marketing/conteúdo**: qual o nicho exato e a cidade/região de atuação? Já tem concorrentes em mente (locais ou online)? Liste os que conhecer — nome, Instagram ou site.
 
 ### Bloco C — Ferramentas e fluxos
-7. Quais ferramentas usa no dia a dia? (ex: Notion, GitHub, WhatsApp, Instagram, Canva, Google Ads, NotebookLM, etc.)
-8. Quais são seus 2 ou 3 fluxos de trabalho principais? (ex: "todo dia produzo X posts", "meu funil de vendas é A → B → C")
-9. O que você mais quer automatizar ou delegar?
+8. Quais ferramentas usa no dia a dia? (ex: Notion, GitHub, WhatsApp, Instagram, Canva, Google Ads, NotebookLM, etc.)
+9. Quais são seus 2 ou 3 fluxos de trabalho principais? (ex: "todo dia produzo X posts", "meu funil de vendas é A → B → C")
+10. O que você mais quer automatizar ou delegar?
 
 ### Bloco D — Agentes desejados
 Mostre a lista abaixo e pergunte: **quais agentes quer ativar?**
@@ -290,7 +291,7 @@ Atualizar também a seção `### [NOME]` em `ESCRITORIO.md`.
 
 - **DEV:** Código, automações, bugs, scripts Python/JS, integrações de API
 - **CRIATIVO:** Posts, copys, legendas, roteiros, briefings visuais para todas as plataformas
-- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO
+- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO. **Pré-requisito:** verificar `referencias/concorrentes.md` e `planejamento/INVENTARIO-NOTEBOOKLM.md` antes de qualquer consulta ao NotebookLM — conteúdo sem contexto de concorrentes é genérico
 - **ESTRATEGISTA:** Campanhas, funis, análise de métricas, benchmarks, preços
 - **PESQUISADOR:** Tendências de mercado, análise de concorrentes, referências
 - **DESIGNER:** Geração de imagens (Higgsfield/Canva/outros) + vídeos IA
@@ -326,9 +327,10 @@ Para **cada projeto ativo** informado na entrevista, criar uma pasta na raiz:
     │   │   └── IDEIAS-[ANO-MES].md
     │   └── briefings/
     │       └── TEMPLATE-BRIEFING.md
-    ├── entregas/          ← conteúdo pronto para publicar
-    ├── referencias/       ← materiais de referência visual/concorrentes
-    └── ideias/            ← ideias brutas aprovadas
+    ├── referencias/
+    │   └── concorrentes.md    ← mapeamento de concorrentes local + online
+    ├── entregas/              ← conteúdo pronto para publicar
+    └── ideias/                ← ideias brutas aprovadas
 ```
 
 ### Arquivo: [projeto]/CLAUDE.md
@@ -404,19 +406,100 @@ Agentes globais disponíveis em `[caminho-raiz]/escritorio/`:
 
 ### Para projetos de marketing/conteúdo — Arquivos adicionais
 
+#### PASSO 0 — Mapeamento de concorrentes (fazer ANTES do NotebookLM)
+
+> Este passo garante que o NotebookLM terá contexto real de mercado antes de gerar qualquer copy ou ideia. Sem isso, o output é genérico.
+
+**Como executar:**
+
+1. Com base no nicho e cidade/região informados na entrevista, usar o agente PESQUISADOR para mapear:
+   - **3 a 5 concorrentes locais** (mesma cidade/região — buscar no Google Maps, Instagram, Google)
+   - **3 a 5 referências online** (líderes do segmento no Brasil ou no mundo)
+
+2. Para cada concorrente encontrado, capturar:
+   - Nome, Instagram, site
+   - Observação rápida: o que fazem bem no conteúdo?
+
+3. Criar o arquivo `referencias/concorrentes.md` (template abaixo)
+
+4. Usar o agente INSPECTOR para capturar os sites dos principais (gera prints, paleta, tecnologias)
+
+5. Carregar no NotebookLM:
+   - Posts/vídeos do Instagram de cada concorrente (baixar e fazer upload)
+   - Site capturado pelo INSPECTOR (o `resumo.md` gerado)
+   - Materiais próprios da marca
+
+6. Só após isso: abrir o INVENTARIO-NOTEBOOKLM.md, marcar o que foi carregado e liberar o PLANEJAMENTO para gerar conteúdo
+
+---
+
+**referencias/concorrentes.md:**
+```markdown
+# CONCORRENTES — [Nome do Projeto]
+> Mapeado em [data]. Atualizar sempre que um novo concorrente relevante surgir.
+> **Regra:** antes de qualquer sessão no NotebookLM, verificar se novos concorrentes precisam ser adicionados.
+
+---
+
+## Concorrentes Locais — [Cidade/Região]
+
+| Nome | Instagram | Site | O que fazem bem | Capturado pelo Inspector? | No NotebookLM? |
+|---|---|---|---|---|---|
+[Preencher com os concorrentes locais mapeados pelo PESQUISADOR]
+
+## Referências Online — [Nicho] Nacional/Global
+
+| Nome | Instagram | Site | O que fazem bem | Capturado pelo Inspector? | No NotebookLM? |
+|---|---|---|---|---|---|
+[Preencher com as referências online mapeadas pelo PESQUISADOR]
+
+---
+
+## Como atualizar
+1. Novo concorrente identificado → adicionar à tabela
+2. Usar INSPECTOR para capturar o site: `python inspector.py [url]`
+3. Carregar no NotebookLM e marcar `[x]` na coluna "No NotebookLM?"
+4. Atualizar INVENTARIO-NOTEBOOKLM.md
+```
+
+---
+
 **planejamento/INVENTARIO-NOTEBOOKLM.md:**
 ```markdown
 # INVENTÁRIO — NotebookLM [Nome do Projeto]
 > Liste aqui tudo que está carregado no NotebookLM deste projeto.
+> **Atualizar a cada upload.** O PLANEJAMENTO lê este arquivo antes de consultar o NotebookLM.
 > Última atualização: [data de hoje]
 
-## Materiais da Empresa/Marca
-| Material | Tipo | Carregado? |
-|---|---|---|
+---
 
-## Materiais de Concorrentes / Referências
-| Fonte | Tipo | Carregado? |
-|---|---|---|
+## ⚠️ Pré-requisito: concorrentes mapeados?
+> Antes de usar o NotebookLM para gerar conteúdo, confirmar:
+- [ ] `referencias/concorrentes.md` preenchido com locais + online
+- [ ] Sites capturados pelo INSPECTOR
+- [ ] Posts/vídeos dos concorrentes carregados abaixo
+
+---
+
+## Materiais da Empresa/Marca
+
+| Material | Tipo | Descrição | Carregado? |
+|---|---|---|---|
+
+## Concorrentes e Referências
+
+| Fonte | Tipo | O que contém | Carregado? |
+|---|---|---|---|
+[Preencher a partir de `referencias/concorrentes.md`]
+
+---
+
+## Capacidades atuais do NotebookLM
+> Preencher conforme os materiais forem sendo carregados.
+- [ ] Gerar posts com tom de voz real da marca
+- [ ] Identificar gaps vs. concorrentes
+- [ ] Sugerir ângulos não explorados ainda
+- [ ] Criar calendário baseado em contexto real de mercado
 ```
 
 **planejamento/CALENDARIO.md:**
