@@ -291,7 +291,7 @@ Atualizar também a seção `### [NOME]` em `ESCRITORIO.md`.
 
 - **DEV:** Código, automações, bugs, scripts Python/JS, integrações de API
 - **CRIATIVO:** Posts, copys, legendas, roteiros, briefings visuais para todas as plataformas
-- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO. **Pré-requisito:** verificar `referencias/concorrentes.md` e `planejamento/INVENTARIO-NOTEBOOKLM.md` antes de qualquer consulta ao NotebookLM — conteúdo sem contexto de concorrentes é genérico
+- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO. Usa `notebooklm` CLI direto no Claude Code (`notebooklm ask "..."`, `notebooklm source add [url/arquivo]`). **Pré-requisito:** verificar `referencias/concorrentes.md` e `planejamento/INVENTARIO-NOTEBOOKLM.md` antes de qualquer consulta — conteúdo sem contexto de concorrentes é genérico. Instalar com: `pip install "notebooklm-py[browser]"` + `notebooklm skill install` + `notebooklm login`
 - **ESTRATEGISTA:** Campanhas, funis, análise de métricas, benchmarks, preços
 - **PESQUISADOR:** Tendências de mercado, análise de concorrentes, referências
 - **DESIGNER:** Geração de imagens (Higgsfield/Canva/outros) + vídeos IA
