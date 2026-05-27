@@ -313,6 +313,7 @@ Atualizar também a seção `### [NOME]` em `ESCRITORIO.md`.
 ### Se selecionou o agente PLANEJAMENTO
 
 **notebooklm-py** — acesso ao NotebookLM diretamente pelo terminal e pelo Claude Code.
+Repositório: https://github.com/teng-lin/notebooklm-py
 
 **1. Instalar a biblioteca:**
 ```bash
