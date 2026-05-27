@@ -291,7 +291,7 @@ Atualizar também a seção `### [NOME]` em `ESCRITORIO.md`.
 
 - **DEV:** Código, automações, bugs, scripts Python/JS, integrações de API
 - **CRIATIVO:** Posts, copys, legendas, roteiros, briefings visuais para todas as plataformas
-- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO. Usa `notebooklm` CLI direto no Claude Code (`notebooklm ask "..."`, `notebooklm source add [url/arquivo]`). **Pré-requisito:** verificar `referencias/concorrentes.md` e `planejamento/INVENTARIO-NOTEBOOKLM.md` antes de qualquer consulta — conteúdo sem contexto de concorrentes é genérico. Instalar com: `pip install "notebooklm-py[browser]"` + `notebooklm skill install` + `notebooklm login`
+- **PLANEJAMENTO:** Calendário editorial, banco de ideias via NotebookLM, briefings para CRIATIVO. Usa `notebooklm` CLI direto no Claude Code (`notebooklm ask "..."`, `notebooklm source add [url/arquivo]`). **Pré-requisito:** verificar `referencias/concorrentes.md` e `planejamento/INVENTARIO-NOTEBOOKLM.md` antes de qualquer consulta — conteúdo sem contexto de concorrentes é genérico. **Instalação:** ver ETAPA 2.5 deste arquivo.
 - **ESTRATEGISTA:** Campanhas, funis, análise de métricas, benchmarks, preços
 - **PESQUISADOR:** Tendências de mercado, análise de concorrentes, referências
 - **DESIGNER:** Geração de imagens (Higgsfield/Canva/outros) + vídeos IA
@@ -301,6 +301,72 @@ Atualizar também a seção `### [NOME]` em `ESCRITORIO.md`.
 - **ORGANIZADOR:** Vault Obsidian, diário, dashboard, links entre notas
 - **MINERADOR:** Mineração de vídeos virais em redes sociais para referência de conteúdo
 - **COPY:** Geração de roteiros curtos e copys em volume para redes sociais
+
+---
+
+## ETAPA 2.5 — INSTALAÇÃO DE FERRAMENTAS
+
+> Execute esta etapa **antes** de criar os projetos, conforme os agentes selecionados. Pergunte se quer instalar agora ou depois.
+
+---
+
+### Se selecionou o agente PLANEJAMENTO
+
+**notebooklm-py** — acesso ao NotebookLM diretamente pelo terminal e pelo Claude Code.
+
+**1. Instalar a biblioteca:**
+```bash
+# Opção preferida — com uv (Python gerenciado por uv)
+uv tool install "notebooklm-py[browser]"
+
+# Alternativa — com pip
+pip install "notebooklm-py[browser]"
+```
+
+**2. Instalar o driver de browser (necessário para automação):**
+```bash
+# Com uv
+uvx --from playwright playwright install chromium
+
+# Com pip
+playwright install chromium
+```
+
+**3. Instalar a skill no Claude Code:**
+```bash
+notebooklm skill install
+```
+> Adiciona comandos do NotebookLM direto no Claude Code como skill.
+
+**4. Autenticar com o Google:**
+```bash
+notebooklm login
+```
+> Abre o browser para login com a conta Google onde o NotebookLM está configurado. Executar com `! notebooklm login` dentro do Claude Code para o browser abrir corretamente.
+
+**5. Verificar instalação:**
+```bash
+notebooklm auth check --test
+notebooklm list
+```
+
+**Após instalar:** usar `notebooklm list` para ver os notebooks disponíveis e `notebooklm use <notebook_id>` para selecionar o notebook do projeto ativo.
+
+---
+
+### Se selecionou o agente SCRAPER
+
+**Google Places API** — necessária para extração de leads.
+- Obter chave em: console.cloud.google.com → APIs → Places API
+- Salvar como variável de ambiente ou em `escritorio/scraper/.env`
+
+---
+
+### Se selecionou o agente WHATSAPP
+
+**Evolution API** — necessária para disparo em massa via WhatsApp.
+- Requer Docker instalado
+- Documentação: github.com/EvolutionAPI/evolution-api
 
 ---
 
